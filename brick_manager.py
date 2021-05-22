@@ -19,6 +19,8 @@ class BrickManager:
 
     def is_hit(self, ball_position):
         for b in self.brick_list:
-            if b.distance(ball_position) < 70 and b.ycor() - ball_position[1] < 20:
+            if b.is_active and b.distance(ball_position) < 70 and b.ycor() - ball_position[1] < 20:
+                b.is_active = False
+                b.color("black")
                 return True
         return False
